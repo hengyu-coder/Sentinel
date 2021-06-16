@@ -28,7 +28,7 @@ import java.util.List;
 
 /**
  * Builder for a default {@link ProcessorSlotChain}.
- *
+ * build 所有默认 slot chain
  * @author qinan.qn
  * @author leyou
  */
@@ -38,7 +38,7 @@ public class DefaultSlotChainBuilder implements SlotChainBuilder {
     @Override
     public ProcessorSlotChain build() {
         ProcessorSlotChain chain = new DefaultProcessorSlotChain();
-
+        //从spi获取注册slot集合
         List<ProcessorSlot> sortedSlotList = SpiLoader.of(ProcessorSlot.class).loadInstanceListSorted();
         for (ProcessorSlot slot : sortedSlotList) {
             if (!(slot instanceof AbstractLinkedProcessorSlot)) {

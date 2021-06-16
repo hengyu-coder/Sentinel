@@ -26,7 +26,7 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 
 /**
  * Metric extension entry callback.
- *
+ * Callback调用统计指标
  * @author Carpenter Lee
  * @since 1.6.1
  */

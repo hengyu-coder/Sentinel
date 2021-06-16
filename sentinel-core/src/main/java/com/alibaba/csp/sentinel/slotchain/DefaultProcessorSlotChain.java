@@ -18,6 +18,7 @@ package com.alibaba.csp.sentinel.slotchain;
 import com.alibaba.csp.sentinel.context.Context;
 
 /**
+ * 第一个 slot chain 用于进入触发操作
  * @author qinan.qn
  * @author jialiang.linjl
  */

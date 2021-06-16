@@ -108,7 +108,7 @@ public abstract class AbstractCircuitBreaker implements CircuitBreaker {
             entry.whenTerminate(new BiConsumer<Context, Entry>() {
                 @Override
                 public void accept(Context context, Entry entry) {
-                    // Note: This works as a temporary workaround for https://github.com/alibaba/Sentinel/issues/1638
+                    // Note: this works as a temporary workaround for https://github.com/alibaba/Sentinel/issues/1638
                     // Without the hook, the circuit breaker won't recover from half-open state in some circumstances
                     // when the request is actually blocked by upcoming rules (not only degrade rules).
                     if (entry.getBlockError() != null) {

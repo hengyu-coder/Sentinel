@@ -103,11 +103,13 @@ public class ContextUtil {
      * Same resource in different context will count separately, see {@link NodeSelectorSlot}.
      * </p>
      *
-     * @param name   the context name
+     * @param name   the context name 上下文名称
      * @param origin the origin of this invocation, usually the origin could be the Service
      *               Consumer's app name. The origin is useful when we want to control different
      *               invoker/consumer separately.
+     *               调用的origin，通常这个origin可以是服务端额消费者app名称，这个orgin可以在我们想要控制不通的消费组起作用
      * @return The invocation context of the current thread
+     *              这个线程调用的上下文对象
      */
     public static Context enter(String name, String origin) {
         if (Constants.CONTEXT_DEFAULT_NAME.equals(name)) {
@@ -196,6 +198,7 @@ public class ContextUtil {
     /**
      * Exit context of current thread, that is removing {@link Context} in the
      * ThreadLocal.
+     * 从threadlocal中移除
      */
     public static void exit() {
         Context context = contextHolder.get();

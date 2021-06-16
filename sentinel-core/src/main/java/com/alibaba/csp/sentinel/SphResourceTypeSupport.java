@@ -26,15 +26,18 @@ public interface SphResourceTypeSupport {
 
     /**
      * Record statistics and perform rule checking for the given resource with provided classification.
-     *
-     * @param name         the unique name of the protected resource
-     * @param resourceType the classification of the resource
-     * @param trafficType  the traffic type (inbound, outbound or internal). This is used
+     * 记录统计和对给定的分类对给定的资源进行执行规则检测
+     * @param name         the unique name of the protected resource 受保护资源唯一的名称
+     * @param resourceType the classification of the resource 资源的分类类型
+     * @param trafficType  the traffic type (inbound, outbound or internal). This is used 流量类型记录是出口还是入口
      *                     to mark whether it can be blocked when the system is unstable,
      *                     only inbound traffic could be blocked by {@link SystemRule}
      * @param batchCount   the amount of calls within the invocation (e.g. batchCount=2 means request for 2 tokens)
+     *                     指定的调用的数量
      * @param args         args for parameter flow control or customized slots
+     *                     流控自定义的参数
      * @return the {@link Entry} of this invocation (used for mark the invocation complete and get context data)
+     *                     返回entry对象
      * @throws BlockException if the block criteria is met
      */
     Entry entryWithType(String name, int resourceType, EntryType trafficType, int batchCount, Object[] args)
@@ -50,6 +53,7 @@ public interface SphResourceTypeSupport {
      *                     only inbound traffic could be blocked by {@link SystemRule}
      * @param batchCount   the amount of calls within the invocation (e.g. batchCount=2 means request for 2 tokens)
      * @param prioritized  whether the entry is prioritized
+     *                     entry的优先级
      * @param args         args for parameter flow control or customized slots
      * @return the {@link Entry} of this invocation (used for mark the invocation complete and get context data)
      * @throws BlockException if the block criteria is met
@@ -59,7 +63,7 @@ public interface SphResourceTypeSupport {
 
     /**
      * Record statistics and perform rule checking for the given resource that indicates an async invocation.
-     *
+     * 异步调用统计
      * @param name         the unique name for the protected resource
      * @param resourceType classification of the resource (e.g. Web or RPC)
      * @param trafficType  the traffic type (inbound, outbound or internal). This is used

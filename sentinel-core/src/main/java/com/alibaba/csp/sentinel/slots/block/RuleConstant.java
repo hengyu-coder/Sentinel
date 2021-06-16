@@ -23,7 +23,15 @@ import com.alibaba.csp.sentinel.node.IntervalProperty;
  */
 public final class RuleConstant {
 
+    /**
+     * 流控等级的模式
+     * 线程模式
+     */
     public static final int FLOW_GRADE_THREAD = 0;
+    /**
+     * 流控等级的模式
+     * QPS模式
+     */
     public static final int FLOW_GRADE_QPS = 1;
 
     public static final int DEGRADE_GRADE_RT = 0;

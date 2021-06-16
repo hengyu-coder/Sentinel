@@ -18,6 +18,7 @@ package com.alibaba.csp.sentinel.slotchain;
 import com.alibaba.csp.sentinel.context.Context;
 
 /**
+ * ProcessorSlot 抽象父类
  * @author qinan.qn
  * @author jialiang.linjl
  */
@@ -25,7 +26,11 @@ public abstract class AbstractLinkedProcessorSlot<T> implements ProcessorSlot<T>
 
     private AbstractLinkedProcessorSlot<?> next = null;
 
+
     @Override
+    /**
+     * 首次进入entry
+     */
     public void fireEntry(Context context, ResourceWrapper resourceWrapper, Object obj, int count, boolean prioritized, Object... args)
         throws Throwable {
         if (next != null) {
@@ -34,6 +39,9 @@ public abstract class AbstractLinkedProcessorSlot<T> implements ProcessorSlot<T>
     }
 
     @SuppressWarnings("unchecked")
+    /**
+     * 转换entry
+     */
     void transformEntry(Context context, ResourceWrapper resourceWrapper, Object o, int count, boolean prioritized, Object... args)
         throws Throwable {
         T t = (T)o;

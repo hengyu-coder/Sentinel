@@ -140,6 +140,7 @@ public class AsyncEntryDemo {
                 // The thread is different from original caller thread for async entry.
                 // So we need to wrap in the async context so that nested invocation entry
                 // can be linked to the parent asynchronous entry.
+                //进行异步上下文传递
                 ContextUtil.runOnContext(entry.getAsyncContext(), () -> {
                     try {
                         // In the callback, we do another async invocation several times under the async context.
@@ -183,20 +184,25 @@ public class AsyncEntryDemo {
         ContextUtil.enter("async-context", "originA");
         Entry entry = null;
         try {
+            //建立一个entry
             entry = SphU.entry("test-top");
             System.out.println("Do something...");
+            //开始服务调用
             service.doAsyncThenSync();
         } catch (BlockException ex) {
             // Request blocked, handle the exception.
+            //请求blocked，进行处理
             ex.printStackTrace();
         } finally {
+            //退出entry
             if (entry != null) {
                 entry.exit();
             }
+            //退出上下文，从ThreadLocal中移除
             ContextUtil.exit();
         }
 
-        TimeUnit.SECONDS.sleep(20);
+        TimeUnit.SECONDS.sleep(10000);
     }
 
     private static void initFlowRule() {

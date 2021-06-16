@@ -67,6 +67,7 @@ public final class Constants {
 
     /**
      * The global switch for Sentinel.
+     * Sentinel全局开关
      */
     public static volatile boolean ON = true;
 

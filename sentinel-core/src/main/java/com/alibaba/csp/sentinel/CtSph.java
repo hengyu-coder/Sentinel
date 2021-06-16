@@ -34,7 +34,7 @@ import com.alibaba.csp.sentinel.slots.block.Rule;
 
 /**
  * {@inheritDoc}
- *
+ * Spy主要实现类
  * @author jialiang.linjl
  * @author leyou(lihao)
  * @author Eric Zhao
@@ -187,7 +187,7 @@ public class CtSph implements Sph {
      * Note that total {@link ProcessorSlot} count must not exceed {@link Constants#MAX_SLOT_CHAIN_SIZE},
      * otherwise null will return.
      * </p>
-     *
+     * 构建处理chain
      * @param resourceWrapper target resource
      * @return {@link ProcessorSlotChain} of the resource
      */
@@ -195,6 +195,7 @@ public class CtSph implements Sph {
         ProcessorSlotChain chain = chainMap.get(resourceWrapper);
         if (chain == null) {
             synchronized (LOCK) {
+                //每个入口一个chain
                 chain = chainMap.get(resourceWrapper);
                 if (chain == null) {
                     // Entry size limit.

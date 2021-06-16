@@ -29,6 +29,9 @@ import com.alibaba.csp.sentinel.init.InitExecutor;
  */
 public class Env {
 
+    /**
+     * 初始化SPY
+     */
     public static final Sph sph = new CtSph();
 
     static {
