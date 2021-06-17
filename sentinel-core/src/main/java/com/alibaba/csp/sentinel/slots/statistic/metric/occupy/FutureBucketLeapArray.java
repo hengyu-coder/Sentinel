@@ -20,8 +20,8 @@ import com.alibaba.csp.sentinel.slots.statistic.base.WindowWrap;
 import com.alibaba.csp.sentinel.slots.statistic.data.MetricBucket;
 
 /**
- * A kind of {@code BucketLeapArray} that only reserves for future buckets.
- *
+ * a kind of {@code bucketleaparray} that only reserves for future buckets.
+ * bucketleaparray的一个子类，只为未来的存储桶预留。
  * @author jialiang.linjl
  * @since 1.5.0
  */

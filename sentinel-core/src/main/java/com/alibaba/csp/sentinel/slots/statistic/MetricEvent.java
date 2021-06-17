@@ -34,6 +34,7 @@ public enum MetricEvent {
 
     /**
      * Passed in future quota (pre-occupied, since 1.5.0).
+     * 在未来配额中通过
      */
     OCCUPIED_PASS
 }

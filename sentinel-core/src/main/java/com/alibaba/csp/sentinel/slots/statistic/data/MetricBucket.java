@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.LongAdder;
 
 /**
  * Represents metrics data in a period of time span.
- *
+ * 表示一段时间内的指标数据。
  * @author jialiang.linjl
  * @author Eric Zhao
  */

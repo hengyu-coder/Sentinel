@@ -99,11 +99,13 @@ public class StatisticNode implements Node {
     /**
      * Holds statistics of the recent 60 seconds. The windowLengthInMs is deliberately set to 1000 milliseconds,
      * meaning each bucket per second, in this way we can get accurate statistics of each second.
+     * 保存最近 60 秒的统计信息，窗口时间间隔故意设置成 1000毫秒，也就是每个bucket每秒，这样我们就可以得到每一秒的准确统计数据。
      */
     private transient Metric rollingCounterInMinute = new ArrayMetric(60, 60 * 1000, false);
 
     /**
      * The counter for thread count.
+     * 统计使用线程数量
      */
     private LongAdder curThreadNum = new LongAdder();
 

@@ -21,7 +21,7 @@ import com.alibaba.csp.sentinel.slots.statistic.data.MetricBucket;
 
 /**
  * The fundamental data structure for metric statistics in a time span.
- *
+ * 时间跨度内度量统计的基本数据结构。
  * @author jialiang.linjl
  * @author Eric Zhao
  * @see LeapArray

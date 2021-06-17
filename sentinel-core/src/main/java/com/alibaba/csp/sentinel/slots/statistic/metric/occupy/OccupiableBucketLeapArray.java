@@ -23,6 +23,7 @@ import com.alibaba.csp.sentinel.slots.statistic.base.WindowWrap;
 import com.alibaba.csp.sentinel.slots.statistic.data.MetricBucket;
 
 /**
+ * 数组指标统计的基础类
  * @author jialiang.linjl
  * @since 1.5.0
  */
