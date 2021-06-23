@@ -107,10 +107,12 @@ public class ResponseTimeCircuitBreaker extends AbstractCircuitBreaker {
         if (totalCount < minRequestAmount) {
             return;
         }
+        //计算当前rt缓慢系数，判断是否打开熔断器
         double currentRatio = slowCount * 1.0d / totalCount;
         if (currentRatio > maxSlowRequestRatio) {
             transformToOpen(currentRatio);
         }
+        //如果当前系数和最大慢请求系统相等并且最大慢请求系数等于全局最大慢请求 尝试打开断路器
         if (Double.compare(currentRatio, maxSlowRequestRatio) == 0 &&
                 Double.compare(maxSlowRequestRatio, SLOW_REQUEST_RATIO_MAX_VALUE) == 0) {
             transformToOpen(currentRatio);

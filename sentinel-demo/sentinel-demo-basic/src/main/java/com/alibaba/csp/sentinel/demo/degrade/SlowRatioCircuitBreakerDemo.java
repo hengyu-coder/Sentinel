@@ -115,12 +115,17 @@ public class SlowRatioCircuitBreakerDemo {
         DegradeRule rule = new DegradeRule(KEY)
             .setGrade(CircuitBreakerStrategy.SLOW_REQUEST_RATIO.getType())
             // Max allowed response time
+            //最大允许响应时间
             .setCount(50)
             // Retry timeout (in second)
+            //重试时间
             .setTimeWindow(10)
             // Circuit breaker opens when slow request ratio > 60%
+            //当慢请求数量>60%则熔断器打开
             .setSlowRatioThreshold(0.6)
+            //最小请求数量，用于控制断路器精准度
             .setMinRequestAmount(100)
+            //窗口统计时间间隔，也就是滑动窗口时间间隔
             .setStatIntervalMs(20000);
         rules.add(rule);
 

@@ -37,10 +37,12 @@ public final class RuleConstant {
     public static final int DEGRADE_GRADE_RT = 0;
     /**
      * Degrade by biz exception ratio in the current {@link IntervalProperty#INTERVAL} second(s).
+     * 按照当前间隔秒数通过异常比率进行降级
      */
     public static final int DEGRADE_GRADE_EXCEPTION_RATIO = 1;
     /**
      * Degrade by biz exception count in the last 60 seconds.
+     * 在过去 60 秒内按 biz 异常计数降级。
      */
     public static final int DEGRADE_GRADE_EXCEPTION_COUNT = 2;
 

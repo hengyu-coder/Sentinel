@@ -23,14 +23,17 @@ public enum CircuitBreakerStrategy {
 
     /**
      * Circuit breaker opens (cuts off) when slow request ratio exceeds the threshold.
+     * 熔断器按照慢请求比率进行降级
      */
     SLOW_REQUEST_RATIO(0),
     /**
      * Circuit breaker opens (cuts off) when error ratio exceeds the threshold.
+     * 按照错误数据比率进行降级
      */
     ERROR_RATIO(1),
     /**
      * Circuit breaker opens (cuts off) when error count exceeds the threshold.
+     * 按照错误数量进行降级
      */
     ERROR_COUNT(2);
 

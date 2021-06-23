@@ -35,7 +35,7 @@ public interface CircuitBreaker {
 
     /**
      * Acquires permission of an invocation only if it is available at the time of invoking.
-     *
+     * 仅当调用时可用时才获得调用许可。
      * @param context context of current invocation
      * @return {@code true} if permission was acquired and {@code false} otherwise
      */
@@ -62,6 +62,7 @@ public interface CircuitBreaker {
     enum State {
         /**
          * In {@code OPEN} state, all requests will be rejected until the next recovery time point.
+         * 在open状态，所有的请求将会被拒绝，直到下一个恢复时间点
          */
         OPEN,
         /**
@@ -70,6 +71,8 @@ public interface CircuitBreaker {
          * will re-transform to the {@code OPEN} state and wait for the next recovery time point;
          * otherwise the resource will be regarded as "recovered" and the circuit breaker
          * will cease cutting off requests and transform to {@code CLOSED} state.
+         * 在半开状态，这个熔断器将会允许允许一个探测调用，如果这个按照策略调用异常，这个熔断器将会改变为打开状态直到下一个恢复时间点
+         * 否则这个资源将会视为已恢复，这个熔断器并且断路器将停止切断请求并转换为 {@code CLOSED} 状态。
          */
         HALF_OPEN,
         /**

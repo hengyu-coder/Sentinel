@@ -90,8 +90,10 @@ import com.alibaba.csp.sentinel.util.function.Predicate;
 public class StatisticNode implements Node {
 
     /**
-     * holds statistics of the recent {@code INTERVAL} milliseconds. The {@code INTERVAL} is divided into time spans
-     * by given {@code sampleCount}.
+     * holds statistics of the recent {@code interval} milliseconds. the {@code interval} is divided into time spans
+     * by given {@code samplecount}.
+     * 保存最近 {@code interval} 毫秒的统计信息。 {@code interval} 由给定的 {@code samplecount} 划分为时间跨度
+     *
      */
     private transient volatile Metric rollingCounterInSecond = new ArrayMetric(SampleCountProperty.SAMPLE_COUNT,
         IntervalProperty.INTERVAL);

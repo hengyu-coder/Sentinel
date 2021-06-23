@@ -24,7 +24,7 @@ import com.alibaba.csp.sentinel.util.TimeUtil;
 
 /**
  * Default throttling controller (immediately reject strategy).
- *
+ * 直接拒绝策略，默认策略
  * @author jialiang.linjl
  * @author Eric Zhao
  */
@@ -47,7 +47,9 @@ public class DefaultController implements TrafficShapingController {
 
     @Override
     public boolean canPass(Node node, int acquireCount, boolean prioritized) {
+        //获取当前通过的令牌数量
         int curCount = avgUsedTokens(node);
+        //当前通过的数量+获取的数量 和 限定数量进行比较
         if (curCount + acquireCount > count) {
             if (prioritized && grade == RuleConstant.FLOW_GRADE_QPS) {
                 long currentTime;

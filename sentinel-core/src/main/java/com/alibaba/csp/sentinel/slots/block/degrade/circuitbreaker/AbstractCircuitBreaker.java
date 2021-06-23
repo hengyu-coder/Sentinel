@@ -67,6 +67,7 @@ public abstract class AbstractCircuitBreaker implements CircuitBreaker {
     @Override
     public boolean tryPass(Context context) {
         // Template implementation.
+        //
         if (currentState.get() == State.CLOSED) {
             return true;
         }
