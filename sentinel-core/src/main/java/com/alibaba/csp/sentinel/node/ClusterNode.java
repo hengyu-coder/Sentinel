@@ -25,6 +25,8 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.util.AssertUtil;
 
 /**
+ *
+ * ClusterNode：簇点，用于统计每个资源全局的数据（不区分调用链路），以及存放该资源的按来源区分的调用数据（类型为 StatisticNode）。特别地，Constants.ENTRY_NODE 节点用于统计全局的入口资源数据。
  * <p>
  * This class stores summary runtime statistics of the resource, including rt, thread count, qps
  * and so on. Same resource shares the same {@link ClusterNode} globally, no matter in which

@@ -26,6 +26,8 @@ import com.alibaba.csp.sentinel.slotchain.ResourceWrapper;
 import com.alibaba.csp.sentinel.slots.nodeselector.NodeSelectorSlot;
 
 /**
+ *
+ * DefaultNode：链路节点，用于统计调用链路上某个资源的数据，维持树状结构。
  * <p>
  * A {@link Node} used to hold statistics for specific resource name in the specific context.
  * Each distinct resource in each distinct {@link Context} will corresponding to a {@link DefaultNode}.

@@ -39,6 +39,7 @@ public class MetricTimerListener implements Runnable {
     @Override
     public void run() {
         Map<Long, List<MetricNode>> maps = new TreeMap<>();
+        //获取cluster node map中的所有指标进行上报
         for (Entry<ResourceWrapper, ClusterNode> e : ClusterBuilderSlot.getClusterNodeMap().entrySet()) {
             ClusterNode node = e.getValue();
             Map<Long, MetricNode> metrics = node.metrics();

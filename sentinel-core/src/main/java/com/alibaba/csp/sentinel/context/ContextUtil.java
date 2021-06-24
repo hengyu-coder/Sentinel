@@ -32,7 +32,7 @@ import com.alibaba.csp.sentinel.slots.nodeselector.NodeSelectorSlot;
 
 /**
  * Utility class to get or create {@link Context} in current thread.
- *
+ * 在当前线程里面统一的类 获取和创建
  * <p>
  * Each {@link SphU}#entry() or {@link SphO}#entry() should be in a {@link Context}.
  * If we don't invoke {@link ContextUtil}#enter() explicitly, DEFAULT context will be used.
@@ -46,11 +46,13 @@ public class ContextUtil {
 
     /**
      * Store the context in ThreadLocal for easy access.
+     * 存储在ThreadLocal 的上下文便于使用
      */
     private static ThreadLocal<Context> contextHolder = new ThreadLocal<>();
 
     /**
      * Holds all {@link EntranceNode}. Each {@link EntranceNode} is associated with a distinct context name.
+     * 缓存所有的EntranceNode节点，每次EntranceNode与不同的上下文名称相关联。
      */
     private static volatile Map<String, DefaultNode> contextNameNodeMap = new HashMap<>();
 
